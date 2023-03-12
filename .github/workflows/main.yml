@@ -14,10 +14,10 @@ jobs:
         run: |
           echo test > file.txt
 
-      - name: push
-        run: |
-          git config user.name github-actions
-          git config user.email github-actions@github.com
-          git add file.txt
-          git commit -m "generated"
-          git push
+      - name: commit changes
+        uses: EndBug/add-and-commit@v8
+        with:
+          author_name: test
+          author_email: test@example.com
+          message: 'generated'
+          add: 'file.txt'
