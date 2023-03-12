@@ -1,0 +1,23 @@
+name: create file
+
+on:
+  workflow_dispatch:
+  
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout repo content
+        uses: actions/checkout@v3 # checkout the repository content
+
+      - name: create file
+        run: |
+          echo test > file.txt
+
+      - name: push
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add file.txt
+          git commit -m "generated"
+          git push
