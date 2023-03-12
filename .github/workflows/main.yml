@@ -21,3 +21,4 @@ jobs:
           author_email: test@example.com
           message: 'generated'
           add: 'file.txt'
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
